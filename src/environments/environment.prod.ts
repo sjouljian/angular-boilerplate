@@ -1,6 +1,9 @@
 // Enums
 import { EnvName } from '@enums/environment.enum';
 
+// Packages
+import packageInfo from '../../package.json';
+
 const scheme = 'http://';
 const host   = 'localhost';
 const port   = ':5000';

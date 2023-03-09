@@ -6,6 +6,10 @@
 import { EnvName } from '@enums/environment.enum';
 
 const scheme = 'https://';
+// Packages
+import packageInfo from '../../package.json';
+
+const scheme = 'http://';
 const host   = 'localhost';
 const port   = ':44300';
 const path   = '/api/';
@@ -14,7 +18,7 @@ const baseUrl = scheme + host + port + path;
 
 export const environment = {
   production      : false,
-  version         : EnvName.VERSION,
+  version         : packageInfo.version,
   appName         : 'EasyAngular',
   envName         : EnvName.LOCAL,
   defaultLanguage : 'en',

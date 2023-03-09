@@ -13,7 +13,7 @@ import { MainService }  from './main.service';
 
 // Helpers
 import { StringHelper } from '../helpers/string.helper';
-
+import { StorageHelper }    from '../helpers/storage.helper';
 // Enums
 import { Endpoint }     from '../enums/endpoint.enum';
 
@@ -31,20 +31,25 @@ export class AppService extends MainService
 
   public async authenticate(email : string, password : string) : Promise<boolean>
   {
-    return Promise.resolve(true);
+    //return Promise.resolve(true);
 
     // StorageHelper.removeToken();
 
-    // const url  = Endpoint.AUTHENTICATE;
-    // const opts = this.prepareRequest({ email, password }, 'POST', 'AppService : authenticate');
-    // const { data } = await gretch<any, any>(url, opts).json();
+    const url  = Endpoint.AUTHENTICATE;
+    const opts = this.prepareRequest({ UserName: email, Password: password }, 'POST', 'AppService : authenticate');
+    const { data } = await gretch<any, any>(url, opts).json();
 
-    // if (!data)
-    //   return false;
-
-    // const userTokens = new UserTokens(data);
-    // StorageHelper.setToken(userTokens);
+    if (!data)
+       return Promise.resolve(false);
+    else{
+      
+    //const userTokens = new UserTokens(data);
+    StorageHelper.setItem("token", data.token);
+    StorageHelper.setItem("user", data.user);
+    return Promise.resolve(true);
+    
     // return true;
+    }
   }
 
   public async forgotPassword(email : string) : Promise<boolean>

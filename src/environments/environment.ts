@@ -5,9 +5,9 @@
 // Enums
 import { EnvName } from '@enums/environment.enum';
 
-const scheme = 'http://';
+const scheme = 'https://';
 const host   = 'localhost';
-const port   = ':5000';
+const port   = ':44300';
 const path   = '/api/';
 
 const baseUrl = scheme + host + port + path;

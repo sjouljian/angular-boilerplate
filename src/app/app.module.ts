@@ -22,12 +22,14 @@ import { StaticModule }         from './static/static.module';
 
 // Services
 import { AppService }           from '@services/app.service';
+import { StoreService } from '@services/store.service';
 
 // Components
 import { AppComponent }         from './app.component';
 
 // Factories
 import { appInitFactory }       from '@factories/app-init.factory';
+import { AuthService } from '@services/auth.service';
 
 @NgModule({
   imports: [
@@ -66,7 +68,8 @@ import { appInitFactory }       from '@factories/app-init.factory';
 
     // Services
     AppService,
-
+    StoreService,
+    AuthService,
     // Pipes
     DatePipe,
 

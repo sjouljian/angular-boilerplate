@@ -10,6 +10,7 @@ import { environment }  from '@env/environment';
 
 // Services
 import { AppService }   from '@services/app.service';
+import { AuthService }   from '@services/auth.service';
 import { StoreService } from '@services/store.service';
 
 @Component({
@@ -30,6 +31,7 @@ export class LoginComponent
     private router       : Router,
     private storeService : StoreService,
     private appService   : AppService,
+    private authService  : AuthService
   )
   {
     this.initFormGroup();
@@ -72,7 +74,7 @@ export class LoginComponent
 
     const email    = this.formGroup.controls.email.getRawValue();
     const password = this.formGroup.controls.password.getRawValue();
-    const success  = await this.appService.authenticate(email, password);
+    const success  = await this.authService.login(email, password);
 
     this.storeService.setIsLoading(false);
 

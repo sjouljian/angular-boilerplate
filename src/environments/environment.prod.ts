@@ -11,7 +11,7 @@ const baseUrl = scheme + host + port + path;
 export const environment = {
   production      : true,
   version         : EnvName.VERSION,
-  appName         : 'EasyAngular',
+  appName         : 'Geoking',
   envName         : EnvName.PROD,
   defaultLanguage : 'en',
   apiBaseUrl      : baseUrl,

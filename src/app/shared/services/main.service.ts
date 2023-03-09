@@ -35,7 +35,7 @@ export class MainService
     // // NOTE Prepare options
     var self = this;
     return {
-      credentials : 'include',
+      //credentials : 'include',
       baseURL : environment.apiBaseUrl,
       method  : method,
       body    : body ? JSON.stringify(body) : null,
